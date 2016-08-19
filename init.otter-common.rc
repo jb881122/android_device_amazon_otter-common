@@ -77,6 +77,9 @@ on boot
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
 
+on property:wifi.ready=1
+    insmod /system/lib/modules/wl12xx_sdio.ko
+
 service fixmac /system/bin/fix-mac.sh
     class core
     user root
