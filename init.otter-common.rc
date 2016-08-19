@@ -53,9 +53,6 @@ on post-fs
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
 
-    # run mac script
-    start fixmac
-
 on post-fs-data
     mkdir /data/tmp 0777 system system
     symlink /data/tmp /tmp
@@ -65,6 +62,9 @@ on post-fs-data
     chown drmrpc drmrpc /data/smc/counter.bin
     chown drmrpc drmrpc /data/smc/storage.bin
     chown drmrpc drmrpc /data/smc/system.bin
+
+    # run mac script
+    start fixmac
 
     setprop vold.post_fs_data_done 1
 
