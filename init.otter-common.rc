@@ -52,9 +52,7 @@ on post-fs
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
     insmod /system/lib/modules/wl12xx.ko
-
-    # run mac script
-    start fixmac
+    insmod /system/lib/modules/wl12xx_sdio.ko
 
 on post-fs-data
     mkdir /data/tmp 0777 system system
@@ -76,13 +74,6 @@ on boot
     setprop status.battery.level 5
     setprop status.battery.level_raw  50
     setprop status.battery.level_scale 9
-
-service fixmac /system/bin/fix-mac.sh
-    class core
-    user root
-    group root
-    oneshot
-    disabled
 
 # wifi services
 service p2p_supplicant /system/bin/wpa_supplicant -e/data/misc/wifi/entropy.bin \
