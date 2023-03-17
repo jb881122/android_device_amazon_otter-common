@@ -71,6 +71,9 @@ else
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 endif
 
+# libstagefright_omx heap corruption fix
+BOARD_SKIP_CVE_2017_13154 := true
+
 # Recovery
 BOARD_RECOVERY_SWIPE := true
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../$(OTTER_COMMON_FOLDER)/recovery/recovery_keys.c
